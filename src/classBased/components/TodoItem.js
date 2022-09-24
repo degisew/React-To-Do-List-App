@@ -1,20 +1,25 @@
+/* eslint-disable */
 import React, { Component } from "react";
 import styles from "./TodoItem.module.css";
+
 export default class TodoItem extends Component {
   state = {
     editing: false,
   };
+
   handleEditing = () => {
     this.setState({
       editing: true,
     });
   };
+
   // handle keyDown() event
   handleUpdatedDone = (event) => {
     if (event.key === "Enter") {
       this.setState({ editing: false });
     }
   };
+
   render() {
     // destructuring
     const { id, completed, title } = this.props.todo;
@@ -24,8 +29,8 @@ export default class TodoItem extends Component {
       opacity: 0.4,
       textDecoration: "line-through",
     };
-    let viewMode = {};
-    let editMode = {};
+    const viewMode = {};
+    const editMode = {};
 
     if (this.state.editing) {
       viewMode.display = "none";
